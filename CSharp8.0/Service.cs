@@ -8,30 +8,37 @@ namespace CSharp8._0
 {
     class Service
     {
+        private static IEnumerable<Person> _people = new List<Person>()
+        {
+            new Person("Tracey", "Jaron", "Downer"),
+            new Person("Thorburn", "Wat", "Tuft"),
+            new Person("Marisa", "Waters"),
+            new Person("Rosy", "Christy", "Bannister"),
+            new Person("Dominick", "Maximillian", "Ayers"),
+            //new Person (null, "Monique", "Smalls"),
+            //new Person ("Corrina", null, null),
+            //new Person ("America", "Randy", null),
+            //new Person (null, null, "Dwerryhouse"),
+            //new Person (null, "Kaleigh", null),
+            //new Person (null, null, null)
+        };
+
         public static IEnumerable<Person> GetSubscribers()
         {
-            yield return new Person("Tracey", "Jaron", "Downer");
-            Thread.Sleep(1000);
-            yield return new Person("Thorburn", "Wat", "Tuft");
-            Thread.Sleep(1000);
-            yield return new Person("Marisa", "Waters");
-            Thread.Sleep(1000);
-            yield return new Person("Rosy", "Christy", "Bannister");
-            Thread.Sleep(1000);
-            yield return new Person("Dominick", "Maximillian", "Ayers");
+            foreach (var p in _people)
+            {
+                Thread.Sleep(500);
+                yield return p;
+            }
         }
 
         async public static IAsyncEnumerable<Person> GetSubscribersAsync()
         {
-            yield return await Task.Factory.StartNew(() => new Person("Tracey", "Jaron", "Downer"));
-            Thread.Sleep(1000);
-            yield return await Task.Factory.StartNew(() => new Person("Thorburn", "Wat", "Tuft"));
-            Thread.Sleep(1000);
-            yield return await Task.Factory.StartNew(() => new Person("Marisa", "Waters"));
-            Thread.Sleep(1000);
-            yield return await Task.Factory.StartNew(() => new Person("Rosy", "Christy", "Bannister"));
-            Thread.Sleep(1000);
-            yield return await Task.Factory.StartNew(() => new Person("Dominick", "Maximillian", "Ayers"));
+            foreach (var p in GetSubscribers())
+            {
+                await Task.Delay(500);
+                yield return p;
+            }
         }
     }
 }
