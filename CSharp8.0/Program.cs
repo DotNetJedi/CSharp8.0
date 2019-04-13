@@ -36,6 +36,11 @@ namespace CSharp8._0
         public string MiddleName { get; set; }
         public string LastName { get; set; }
 
+        public Person(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
         public Person(string firstName, string middleName, string lastName)
         {
             FirstName = firstName;
