@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CSharp8._0
 {
@@ -16,11 +17,12 @@ namespace CSharp8._0
             }
         }
 
+
         static IEnumerable<string> GetNames(IEnumerable<Person> people)
         {
             foreach (var p in people)
             {
-                yield return GetName(p);
+                yield return GetName((p));
             }
         }
 
