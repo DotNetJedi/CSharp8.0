@@ -22,7 +22,7 @@ namespace CSharp8._0
         {
             foreach (var p in people)
             {
-                yield return GetName((p));
+                yield return GetName(p);
             }
         }
 
