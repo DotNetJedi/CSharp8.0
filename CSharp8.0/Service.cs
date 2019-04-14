@@ -30,7 +30,6 @@ namespace CSharp8._0
         {
             foreach (var p in _people)
             {
-                Thread.Sleep(500);
                 yield return p;
             }
         }
