@@ -11,19 +11,21 @@ namespace CSharp8._0
     {
         private static readonly string _connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Spider;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True";
 
-        private static IEnumerable<Person> _people = new List<Person>()
+        private static Person[]  _people = new[]
         {
             new Person("Tracey", "Jaron", "Downer"),
             new Person("Thorburn", "Wat", "Tuft"),
             new Person("Marisa", "Waters"),
             new Person("Rosy", "Christy", "Bannister"),
             new Person("Dominick", "Maximillian", "Ayers"),
+            #region Other data
             //new Person (null, "Monique", "Smalls"),
             //new Person ("Corrina", null, null),
             //new Person ("America", "Randy", null),
             //new Person (null, null, "Dwerryhouse"),
             //new Person (null, "Kaleigh", null),
             //new Person (null, null, null)
+            #endregion
         };
 
         public static IEnumerable<Person> GetSubscribers()
